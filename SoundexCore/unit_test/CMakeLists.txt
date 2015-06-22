@@ -1,0 +1,2 @@
+add_gmock_test(SoundexTest SoundexTest.cpp)
+target_link_libraries(SoundexTest soundexCore)
