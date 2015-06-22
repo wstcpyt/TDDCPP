@@ -15,7 +15,7 @@ public:
     static const size_t MaxCodeLength = 4;
     std::string encode(const std::string &word) const
     {
-        return zeroPad(head(word) + encodedDigits(tail(word)));
+        return zeroPad(upperFront(head(word)) + encodedDigits(tail(word)));
     }
     std::string encodedDigit(char letter) const {
         const std::unordered_map<char,std::string> encodings{
@@ -32,6 +32,11 @@ public:
     }
 
 private:
+    std::string upperFront(const std::string& string) const {
+        return std::string(1,
+        std::toupper(static_cast<unsigned char>(string.front())));
+    }
+
     std::string head(const std::string& word) const{
         return word.substr(0, 1);
     }
